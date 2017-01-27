@@ -171,18 +171,15 @@ git commit -m "Two latest commits squashed"
 
 ## Cherry pick scenario
 
-I'd do it with cherry-pick -n (--no-commit) which lets you inspect (and modify) the result before committing:
+`cherry-pick --no-commit` lets you inspect (and modify) the result before committing:
 
 ```
 1. Stage new file
-2. Stage new intentional bug (compilation bug)
-3. Commit
-4. Push
-5. Revert commit
-6.Cherry pick -n
-7. Fix unintentional bug by unstaging it and discarding it
-8. Commit the remaining file
-9. Push
+2. Commit
+3. Stage new intentional bug
+4. Commit
+5. Fix unintentional and commit it
+6. git cherry-pick --no-commit <hash>
 ```
 
 ---
